@@ -10,9 +10,18 @@ import reactRouterMasterWeb from "./projectImages/reactRouterMasterWeb.png";
 import shipNowWeb from "./projectImages/shipNowWeb.png";
 import starBucksWeb from "./projectImages/starBucksWeb.png";
 import urbanCompanyWeb from "./projectImages/urbanCompanyWeb.png";
+import Ecommerce from './projectImages/E-commerce.png'
 
 // Sample data
 const allProjects = [
+   {
+    title: "E-commerce",
+    type: "web",
+    description:
+      "This project is a E-commerce Project, demonstrating the implementation of client-side routing in React using React Router DOM.",
+    githubLink: "https://github.com/itanmay728/E-commerce",
+    image: Ecommerce,
+  },
   {
     title: "Currency Converter",
     type: "web",

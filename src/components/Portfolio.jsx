@@ -54,7 +54,7 @@ const Portfolio = () => {
             </div>
 
             <a
-              href=""
+              href="mailto:ktanmay1130@gmail.com"
               className=" flex items-center gap-2 w-fit text-white text-sm bg-green-600 hover:bg-green-700 px-4 py-1 rounded-md transition-all duration-300 "
             >
               <FaRegPaperPlane />
