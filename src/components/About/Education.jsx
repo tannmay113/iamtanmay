@@ -1,5 +1,6 @@
 import React from "react";
 import { GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Education = () => {
   const educationData = [
@@ -18,28 +19,32 @@ const Education = () => {
   ];
 
   return (
-    <section className="w-full px-4 py-8 sm:px-6 lg:px-8 bg-white dark:bg-gradient-to-r dark:from-slate-800 dark:via-slate-800 dark:to-slate-700 border border-green-600 rounded-md shadow-md">
-      <h2 className="text-3xl font-bold text-center mb-8 text-zinc-800 dark:text-white">
+    <section className="card-modern w-full px-4 py-8 sm:px-8 sm:py-10">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100 tracking-tight">
         🎓 Education
       </h2>
 
-      <div className="flex flex-col gap-8 max-w-4xl mx-auto ">
+      <div className="flex flex-col gap-5 max-w-3xl mx-auto">
         {educationData.map((edu, index) => (
-          <div
+          <motion.div
             key={index}
-            className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 bg-zinc-100 dark:bg-zinc-900 border-l-4 border-green-500  rounded-md shadow hover:scale-[1.01] transition-all"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.15, duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row sm:items-center gap-4 p-5 bg-gray-50 dark:bg-slate-800/60 border-l-4 border-accent dark:border-accent-light rounded-xl hover:shadow-card-hover transition-all duration-300"
           >
-            <div className="flex items-center justify-center w-12 h-12 bg-green-100 dark:bg-green-600/20 text-green-600 dark:text-green-400 border border-green-600 rounded-full">
-              <GraduationCap className="w-6 h-6" />
+            <div className="flex items-center justify-center w-11 h-11 bg-accent-soft dark:bg-accent/10 text-accent dark:text-accent-light rounded-xl shrink-0">
+              <GraduationCap className="w-5 h-5" />
             </div>
 
-            <div className="flex flex-col ">
-              <h3 className="text-xl font-semibold text-zinc-800 dark:text-white">{edu.degree}</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-300">{edu.branch}</p>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">{edu.institution}</p>
-              <span className="text-xs text-zinc-400 dark:text-zinc-500">{edu.year}</span>
+            <div className="flex flex-col gap-0.5 min-w-0">
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{edu.degree}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">{edu.branch}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{edu.institution}</p>
+              <span className="text-xs text-accent dark:text-accent-light font-medium mt-1">{edu.year}</span>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

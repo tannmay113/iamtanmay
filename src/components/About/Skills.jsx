@@ -31,37 +31,51 @@ const skills = [
   { name: "Spring Boot", icon: <SiSpring className="text-green-500" /> },
   { name: "MySQL", icon: <GrMysql className="text-cyan-600" /> },
   { name: "Oracle", icon: <SiOracle className="text-red-600" /> },
-  { name: "Next", icon: <TbBrandNextjs className="text-zinc-800 dark:text-zinc-300" /> },
+  { name: "Next.js", icon: <TbBrandNextjs className="text-zinc-800 dark:text-zinc-300" /> },
 ];
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.05 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+};
 
 export default function Skills() {
   return (
-    <section className="w-full py-12 px-4 sm:px-8 bg-white dark:bg-gradient-to-r dark:from-slate-800 dark:via-slate-800 dark:to-slate-700 border border-green-600 rounded-md shadow-md">
-      <h2 className="text-3xl font-bold text-center mb-10 text-black dark:text-white ">
+    <section className="card-modern w-full py-10 px-4 sm:px-8">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100 tracking-tight">
         🛠 Skills
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+      <motion.div
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-4xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         {skills.map((skill, index) => (
           <motion.div
-          key={index}
-          initial={{ opacity: 0}}
-          whileInView={{ opacity: 1}}
-          transition={{ delay: index * 0.05, duration: 0.5 }}
-          whileHover={{ scale: 1.05, transition: 0.1}}
-          viewport={{ once: false }}
-          className="group transform transition duration-300 hover:scale-110 hover:shadow-xl hover:border-green-400 bg-zinc-100 dark:bg-zinc-900 border border-green-600 p-4 rounded-xl shadow-md flex flex-col items-center justify-center "
-        >
-          <div className="text-4xl mb-2 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110">
-            {skill.icon}
-          </div>
-          <span className="text-zinc-900 dark:text-white text-sm font-medium transition-colors duration-300 group-hover:text-green-500">
-            {skill.name}
-          </span>
-        </motion.div>
-        
+            key={index}
+            variants={itemVariants}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="group bg-gray-50 dark:bg-slate-800/60 border border-gray-100 dark:border-slate-700/50 p-4 rounded-xl flex flex-col items-center justify-center gap-2 cursor-default hover:shadow-card-hover hover:border-accent/30 dark:hover:border-accent-light/30 transition-all duration-300"
+          >
+            <div className="text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-110">
+              {skill.icon}
+            </div>
+            <span className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium text-center">
+              {skill.name}
+            </span>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

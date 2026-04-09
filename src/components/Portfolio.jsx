@@ -5,101 +5,105 @@ import { FaRegPaperPlane } from "react-icons/fa";
 
 const Portfolio = () => {
   return (
-    <div className="p-4 max-w-7xl mx-auto min-h-screen overflow-x-hidden">
-      <h2 className="md:text-3xl text-center dark:text-slate-50 font-bold mb-8 text-gray-600 ">
-        PORTFOLIO - EXPERIENCES
-      </h2>
+    <div className="p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto min-h-screen overflow-x-hidden">
+      <motion.h2
+        className="text-2xl sm:text-3xl text-center font-bold mb-10 text-gray-800 dark:text-gray-100 tracking-tight"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Portfolio{" "}
+        <span className="text-accent dark:text-accent-light">Experiences</span>
+      </motion.h2>
 
-      {/* Line left */}
-      <div className="relative md:border-l-2 md:border-red-400 dark:border-white md:pl-6 space-y-10">
-        {/* First card */}
+      {/* Timeline */}
+      <div className="relative md:border-l-2 md:border-accent/30 dark:md:border-accent-light/20 md:pl-8 space-y-8">
+        {/* First card - "Looking for opportunity" */}
         <motion.div
-          className="relative md:pl-4"
-          initial={{ x: 100, opacity: 0 }}
+          className="relative md:pl-2"
+          initial={{ x: 60, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          viewport={{ once: false }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true }}
         >
-          {/* Date Dot */}
-          <div className="hidden md:flex md:absolute -left-[1.8rem] top-2 w-2 h-2 bg-red-500 rounded-full"></div>
+          {/* Timeline Dot */}
+          <div className="hidden md:flex md:absolute -left-[2.55rem] top-3 w-3 h-3 bg-accent dark:bg-accent-light rounded-full animate-pulse-dot ring-4 ring-accent-soft dark:ring-accent/20"></div>
 
           {/* Date */}
-          <div className="text-gray-500 dark:text-white italic text-sm">
+          <div className="text-xs font-medium text-accent dark:text-accent-light uppercase tracking-wider mb-2">
             Now
           </div>
 
           {/* Content */}
-          <div className="bg-white dark:bg-gradient-to-r dark:from-slate-800 dark:via-slate-800 dark:to-slate-700  p-5 rounded-md shadow-md flex flex-col md:flex-row justify-between gap-6 items-start md:items-center">
+          <div className="card-modern p-5 sm:p-6 flex flex-col md:flex-row justify-between gap-5 items-start md:items-center">
             {/* Text */}
             <div className="flex-1">
-              <h3 className="text-xl font-medium dark:text-white">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100 leading-snug">
                 Currently looking for an opportunity as a Software Development
                 Engineer
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 whitespace-pre-line">
-                <span className="text-red-500 italic ">
-                  <a
-                    className="hover:underline cursor-pointer"
-                    href="mailto:ktanmay1130@gmail.com"
-                  >
-                    CONTECT ME .
-                  </a>
-                </span>{" "}
-                I will answer you within ~24 hours.
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                <a
+                  className="text-accent dark:text-accent-light hover:underline cursor-pointer font-medium"
+                  href="mailto:ktanmay1130@gmail.com"
+                >
+                  CONTACT ME
+                </a>{" "}
+                — I will answer you within ~24 hours.
               </p>
-              <p className="flex flex-col mt-3 dark:text-white italic font-medium">
+              <div className="flex flex-col mt-3 text-sm text-gray-600 dark:text-gray-300 gap-1">
                 <span>✉️ ktanmay1130@gmail.com</span>
-                <span>📞 +91 6202907277</span>
-              </p>
+                <span>📞 +91 9217479333</span>
+              </div>
             </div>
 
             <a
               href="mailto:ktanmay1130@gmail.com"
-              className=" flex items-center gap-2 w-fit text-white text-sm bg-green-600 hover:bg-green-700 px-4 py-1 rounded-md transition-all duration-300 "
+              className="flex items-center gap-2 whitespace-nowrap text-white text-sm font-medium bg-emerald-500 hover:bg-emerald-600 px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <FaRegPaperPlane />
+              <FaRegPaperPlane className="h-3.5 w-3.5" />
               <span>Hire me</span>
             </a>
           </div>
         </motion.div>
-        {/* First card End*/}
 
+        {/* Experience Cards */}
         {PortfolioExperiences.map((exp, idx) => (
           <motion.div
             key={idx}
-            className="relative md:pl-4"
-            initial={{ x: 100, opacity: 0 }}
+            className="relative md:pl-2"
+            initial={{ x: 60, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: idx * 0.2 }}
-            viewport={{ once: false }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
+            viewport={{ once: true }}
           >
-            {/* Date Dot */}
-            <div className="hidden md:flex md:absolute -left-[1.8rem] top-2 w-2 h-2 bg-red-500 rounded-full"></div>
+            {/* Timeline Dot */}
+            <div className="hidden md:flex md:absolute -left-[2.55rem] top-3 w-3 h-3 bg-accent dark:bg-accent-light rounded-full ring-4 ring-accent-soft dark:ring-accent/20"></div>
 
             {/* Date */}
-            <div className="text-gray-500 dark:text-white italic text-sm">
+            <div className="text-xs font-medium text-accent dark:text-accent-light uppercase tracking-wider mb-2">
               {exp.date}
             </div>
 
-            {/* Content */}
-            <div className="bg-white dark:bg-gradient-to-r dark:from-slate-800 dark:via-slate-800 dark:to-slate-600 p-5 rounded-md shadow-md flex flex-col lg:flex-row justify-between gap-6 items-start max-lg:items-center">
+            {/* Content Card */}
+            <div className="card-modern p-5 sm:p-6 flex flex-col lg:flex-row justify-between gap-6 items-start max-lg:items-center">
               {/* Text */}
-              <div className="flex-1">
-                <div className="group hover:text-red-500">
-                  <h3 className="text-2xl font-medium dark:text-gray-50 group-hover:text-red-600">
+              <div className="flex-1 min-w-0">
+                <div className="group">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-100 group-hover:text-accent dark:group-hover:text-accent-light transition-colors duration-200">
                     {exp.company}
                   </h3>
-                  <p className="text-lg font-medium text-[#4CAF50] group-hover:text-red-600">
+                  <p className="text-base font-medium text-emerald-500 dark:text-emerald-400 mt-0.5">
                     {exp.role}
                   </p>
                 </div>
 
-                <ul className="list-disc ml-4">
+                <ul className="list-none mt-4 space-y-2">
                   {exp.description &&
                     exp.description.map((val, ind) => (
                       <li
                         key={ind}
-                        className="text-sm font-medium text-gray-600 dark:text-gray-100 mt-2 mb-3 whitespace-pre-line"
+                        className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1.5 before:h-1.5 before:bg-accent/40 dark:before:bg-accent-light/40 before:rounded-full"
                       >
                         {val}
                       </li>
@@ -110,23 +114,26 @@ const Portfolio = () => {
                   <a
                     href={exp.companyUrl}
                     target="_blank"
-                    className="mt-3 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 hover:underline"
+                    className="inline-flex items-center mt-4 px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-lg transition-all duration-200 hover:shadow-glow"
                   >
-                    More details
+                    More details →
                   </a>
                 )}
 
-                <h1 className="mt-5 dark:text-white">TECHNOLOGY</h1>
-                <div className="flex flex-wrap gap-2">
-                  {exp.technology &&
-                    exp.technology.map((val, ind) => (
-                      <div
-                        key={ind}
-                        className="mt-3 px-4 py-1 font-poppins font-thin text-sm bg-green-500 text-white rounded-sm hover:bg-red-700 hover:underline"
-                      >
-                        {val}
-                      </div>
-                    ))}
+                <div className="mt-5">
+                  <h4 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">
+                    Technology
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.technology &&
+                      exp.technology.map((val, ind) =>
+                        val ? (
+                          <span key={ind} className="pill">
+                            {val}
+                          </span>
+                        ) : null
+                      )}
+                  </div>
                 </div>
               </div>
 
@@ -135,7 +142,7 @@ const Portfolio = () => {
                 <img
                   src={exp.logo}
                   alt={`${exp.company} logo`}
-                  className="h-16 w-80 object-contain"
+                  className="h-14 w-auto max-w-[200px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-200 shrink-0"
                 />
               )}
             </div>

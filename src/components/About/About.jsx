@@ -6,9 +6,8 @@ import FunFact from "./Funfack";
 
 const About = () => {
   return (
-    <section className=" text-white min-h-screen px-6 py-10 ">
-      <div className="max-w-7xl mx-auto flex flex-col gap-16">
-        
+    <section className="min-h-screen px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+      <div className="max-w-5xl mx-auto flex flex-col gap-12 sm:gap-16">
         <Hero />
         <Skills />
         <Education />
